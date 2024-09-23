@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Reports</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Generated Reports</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Test Type</th>
+        <th>Target</th>
+        <th>Findings</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% reports.forEach(report => { %>
+        <tr>
+          <td><%= report.testType %></td>
+          <td><%= report.target %></td>
+          <td><pre><%= report.findings %></pre></td>
+          <td><%= report.date.toLocaleString() %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+  <a href="/">Back to Home</a>
+</body>
+</html>

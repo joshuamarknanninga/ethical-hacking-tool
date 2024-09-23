@@ -1,9 +1,9 @@
 const { exec } = require('child_process');
 
-const cloudSecurity = (target) => {
+const webAppTest = (target) => {
   return new Promise((resolve, reject) => {
-    // Example: Using ScoutSuite for cloud security assessment
-    const command = `scout suite aws -b -u ${target}`;
+    // Example: Using OWASP ZAP for web application testing
+    const command = `zap-cli quick-scan --start-options '-config api.key=12345' ${target}`;
 
     exec(command, (error, stdout, stderr) => {
       if (error) {
@@ -14,4 +14,4 @@ const cloudSecurity = (target) => {
   });
 };
 
-module.exports = cloudSecurity;
+module.exports = webAppTest;

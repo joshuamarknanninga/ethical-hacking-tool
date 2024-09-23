@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ethical Hacking Tool</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Ethical Hacking Testing Options</h1>
+  
+  <form id="test-form">
+    <label for="testType">Select Test:</label>
+    <select id="testType" name="testType" required>
+      <option value="">--Select a Test--</option>
+      <option value="Penetration Testing">Penetration Testing</option>
+      <option value="Vulnerability Assessment">Vulnerability Assessment</option>
+      <option value="Security Audit">Security Audit</option>
+      <option value="Social Engineering">Social Engineering Testing</option>
+      <option value="Wireless Network Testing">Wireless Network Testing</option>
+      <option value="Web Application Testing">Web Application Testing</option>
+      <option value="Mobile Application Testing">Mobile Application Testing</option>
+      <option value="Physical Security Testing">Physical Security Testing</option>
+      <option value="Red Teaming">Red Teaming</option>
+      <option value="Cloud Security Testing">Cloud Security Testing</option>
+      <option value="API Security Testing">API Security Testing</option>
+      <option value="IoT Security Testing">IoT Security Testing</option>
+    </select>
+
+    <label for="target">Target (e.g., domain or IP):</label>
+    <input type="text" id="target" name="target" required>
+
+    <button type="submit">Execute Test</button>
+  </form>
+
+  <div id="result"></div>
+
+  <a href="/reports">View Reports</a>
+
+  <script src="/script.js"></script>
+</body>
+</html>
