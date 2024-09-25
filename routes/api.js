@@ -1,15 +1,28 @@
 const express = require('express');
 const router = express.Router();
 const Report = require('../models/Report');
-
-// Import Testing Controllers
 const penetrationTest = require('../controllers/penetrationTest');
 const vulnerabilityAssessment = require('../controllers/vulnerabilityAssessment');
-// Import other controllers similarly...
+const rateLimit = require('express-rate-limit');
+
+// Rate limiter middleware to prevent abuse
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per windowMs
+  message: 'Too many requests, please try again later.'
+});
+
+// Apply rate limiting to the test execution route
+router.use('/execute-test', limiter);
 
 // Endpoint to execute a test
 router.post('/execute-test', async (req, res) => {
   const { testType, target } = req.body;
+
+  // Basic validation
+  if (!testType || !target) {
+    return res.status(400).json({ message: 'Test type and target are required' });
+  }
 
   try {
     let findings = '';
