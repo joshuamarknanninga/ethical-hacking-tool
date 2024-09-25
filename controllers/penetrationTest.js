@@ -1,5 +1,5 @@
 const { exec } = require('child_process');
-const { escape } = require('shell-escape'); // Use shell-escape for sanitizing input
+const { escape } = require('shell-escape'); // Sanitize input
 
 const penetrationTest = (target) => {
   return new Promise((resolve, reject) => {
