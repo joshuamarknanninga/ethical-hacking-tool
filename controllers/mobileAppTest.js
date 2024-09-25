@@ -10,4 +10,14 @@ const mobileAppTest = (target) => {
     // Example command to start MobSF scan
     const command = `mobsf scan --file ${safeTarget}`;
 
-    exec(command, (e
+    exec(command, (error, stdout, stderr) => {
+      if (error) {
+        return reject(`Error: ${stderr}`);
+      }
+      resolve(stdout);
+    });
+  });
+};
+
+module.exports = mobileAppTest;
+

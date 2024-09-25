@@ -9,4 +9,13 @@ const cloudSecurity = (target) => {
     // Example: Using ScoutSuite for cloud security assessment
     const command = `scout suite aws -b -u ${safeTarget}`;
 
-    exec(command, (e
+    exec(command, (error, stdout, stderr) => {
+      if (error) {
+        return reject(`Error: ${stderr}`);
+      }
+      resolve(stdout);
+    });
+  });
+};
+
+module.exports = cloudSecurity;

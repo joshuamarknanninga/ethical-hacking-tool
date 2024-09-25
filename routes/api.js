@@ -36,4 +36,23 @@ router.post('/execute-test', async (req, res) => {
         break;
       // Handle other test types similarly...
       default:
-        r
+        return res.status(400).json({ message: 'Invalid Test Type' });
+    }
+
+    // Save report to database
+    const report = new Report({
+      testType,
+      target,
+      findings,
+    });
+
+    await report.save();
+
+    res.json({ message: 'Test executed successfully', findings });
+  } catch (error) {
+    console.error('Error executing test:', error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
+
+module.exports = router;

@@ -15,4 +15,13 @@ const ReportSchema = new mongoose.Schema({
     required: true,
   },
   date: {
-    type: Dat
+    type: Date,
+    default: Date.now,
+  },
+});
+
+// Add indexes to optimize querying by target and date
+ReportSchema.index({ target: 1 });
+ReportSchema.index({ date: -1 });
+
+module.exports = mongoose.model('Report', ReportSchema);
