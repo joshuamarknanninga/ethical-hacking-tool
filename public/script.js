@@ -29,8 +29,4 @@ document.getElementById('test-form').addEventListener('submit', async (e) => {
       resultDiv.textContent = `Error: ${data.message}`;
     }
   } catch (error) {
-    resultDiv.textContent = `Error: ${error.message}`;
-  } finally {
-    resultDiv.classList.remove('loading'); // Remove loading styles
-  }
-});
+    resultDiv.textContent =

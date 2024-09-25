@@ -8,15 +8,4 @@ const iotSecurity = (target) => {
     const safeTarget = escape([target]);
 
     // Example: Using Shodan API for IoT device scanning
-    const command = `shodan search "product:IoT device" ${safeTarget} --apikey ${process.env.SHODAN_API_KEY}`;
-
-    exec(command, (error, stdout, stderr) => {
-      if (error) {
-        return reject(`Error: ${stderr}`);
-      }
-      resolve(stdout);
-    });
-  });
-};
-
-module.exports = iotSecurity;
+    const command = `shodan searc

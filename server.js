@@ -35,21 +35,4 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-// Render Reports Page
-app.get('/reports', async (req, res) => {
-  const Report = require('./models/Report');
-  const reports = await Report.find().sort({ date: -1 });
-  res.render('reports', { reports });
-});
-
-// Global Error Handler
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Something broke!');
-});
-
-// Start Server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// Render 
